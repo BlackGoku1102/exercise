@@ -1,0 +1,40 @@
+<html>
+    <head>
+        <script>
+            class Mobile {
+                constructor (number, brand, message){
+                    this.number;
+                    this.brand;
+                    this.message = [];
+                }
+                sendMessage(message,recipient){
+                    console.log(`Sending message "${message}" from ${this.number}to ${recipient.number}`);
+                    this.storeRecipient(message,recipient);
+                    this.displayRecipientMessage(recipient);
+                    this.storeMessage(message);
+                    this.displayMessage();
+                }
+                storeRecipient(message,recipient){
+                    recipient.message.push(message);
+                }
+                storeMessage(message){
+                    this.message.push(message);
+                }
+                displayRecipientMessage(recipient){
+                    console.log('Recipient');
+                    console.log(recipient.messages);
+                }
+                displayMessage(){
+                    console.log('Send');
+                    console.log(this.messages);
+                }
+            }
+            const iphone_14promax = new Mobile("iphone_14promax","Apple");
+            const galaxy_s23 = new Mobile("galaxy_s23","SamSung");
+            const oppo_find11 = new Mobile("oppo_find11","OPPO");
+            iphone_14promax.sendMessage("Hello!",galaxy_s23);
+            galaxy_s23.sendMessage("Xin chao!",iphone_14promax);
+            iphone_14promax.sendMessage("Giá đắt thế", galaxy_s23);
+        </script>
+    </head>
+</html>>
